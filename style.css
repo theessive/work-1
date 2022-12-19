@@ -1,0 +1,42 @@
+.h1{
+    color:rgb(213, 244, 244);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.col-md-2{
+    margin: 10px;
+}
+#app p{
+    margin: 0;
+    color:aliceblue
+}
+body{
+    padding: 2%;
+
+    background-color: rgb(183, 28, 69);
+    padding-top: 10%;
+}
+.btn{
+    background-color: rgb(201, 172, 187);
+    border-radius: 30px;
+    height: 50px;
+    border: none;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    margin: 15px 0 15px;
+}
+.text{
+    border-radius: 15px;
+    border: none;
+    height: 25px;
+}
+.container-fluid{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 50%;
+
+}

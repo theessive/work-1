@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>work2</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <h1 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 h1">Расчет заработной платы сотрудников</h1>
+    <div id="app">
+        <form>
+            <div>
+                <p>Полное имя:</p>
+                <input placeholder="Полное имя" type="text col-md-3" v-model="name" class="text col-md-3" required />
+            </div><br><br>
+            <div>
+                <p>Дата зарплаты:</p>
+                <input placeholder="Дата зарплаты" type="date" v-model="date" class="text col-md-3" v-model="date" required />
+            </div><br><br>
+            <div>
+                <p>Количество отработанных дней:</p>
+                <input placeholder="Количество отработанных дней" type="number" v-model="daysWorked" class="text col-md-3" required />
+            </div><br><br>
+            <div>
+                <p>Заработная плата сотрудников:</p>
+                <input placeholder="Заработная плата сотрудников" type="number" v-model="salary" class="text col-md-3" required />
+            </div>
+            <br>
+            <button type="submit" onclick="return false" @click="addEmployee" class="btn">Добавить</button>
+        </form>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Серииный номер</th>
+                    <th>Полная имя</th>
+                    <th>Дата зарплаты</th>
+                    <th>Количество отработанных дней</th>
+                    <th>Заработная плата сотрудников без налогового вычета</th>
+                    <th>Заработная плата сотрудников с налоговым вычетом</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(employee, index) in employees" :key="index">
+                    <td>{{ index + 1 }}</td>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.date }}</td>
+                    <td>{{ employee.daysWorked }}</td>
+                    <td>{{ employee.salary }}</td>
+                    <td>{{ employee.salary *  0.85}}</td>
+                    <td><button @click="removeEmployee(index)">Удалить</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Итого без налоговых вычетов: {{ totalWithoutTax }}</p>
+        <p>Итог c налоговыми вычетами : {{ totalWithTax }}</p>
+  </div>
+  
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
